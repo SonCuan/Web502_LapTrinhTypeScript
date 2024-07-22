@@ -1,3 +1,25 @@
 .form { 
     width: 600px;
 }
+
+/* Phan slideshow */
+.slide-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .each-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 300px;
+    color: #fff;
+  }
+  
+  .each-slide span {
+    font-size: 20px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  

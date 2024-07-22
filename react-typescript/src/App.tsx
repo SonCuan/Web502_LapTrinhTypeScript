@@ -6,6 +6,8 @@ import { Route, Routes } from 'react-router-dom';
 import { IProducts } from './interface/products';
 import api from './servis/axios';
 import AuthForm from './components/AuthForm';
+import Header from './layouts/Header';
+import Footer from './layouts/Footer';
 
 export interface ITodo{
   id:number,
@@ -35,7 +37,10 @@ function App() {
   
       <Routes> 
         <Route path = "/" element ={<Home onDelete={handleDelete} products={products} /> } />
+        <Route path='/header' element = {<Header />} />
+        <Route path='/footer ' element = {<Footer />} />
         <Route path ="/detail/:id" Component ={Detail } />
+        
         <Route path ="/authform" element={<AuthForm />} />
       </Routes>
     </>
