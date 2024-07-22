@@ -1,9 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 import api from '../servis/axios';
+import { IProducts } from '../interface/products';
 
 
 type Props = {}
@@ -13,6 +14,7 @@ type FormValues={
   description:string
 }
 const AuthForm = (props: Props) => {
+  const [product , setProduct] = useState<IProducts[]>([])
   const nav = useNavigate(); 
   const sChenma = z.object({
     title : z.string().min(6),
@@ -22,13 +24,14 @@ const AuthForm = (props: Props) => {
   const {
     register  ,
     handleSubmit, 
-    reset,
+    
     formState : {errors}
   } = useForm<FormValues>()
+
   const onSubmit = async (data : FormValues) => {
     try {
       const res = await api.post("/products" , data);
-      reset(res.data);
+      setProduct([...product, res.data]);
       alert("Them san pham thanh cong");
       nav("/");
     } catch (error) {
