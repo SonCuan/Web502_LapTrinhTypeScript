@@ -1,64 +1,94 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom';
-import { z } from 'zod';
-import api from '../servis/axios';
-import { IProducts } from '../interface/products';
+import { zodResolver } from "@hookform/resolvers/zod";
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate, useParams } from "react-router-dom";
+import { z } from "zod";
+import api from "../servis/axios";
+import { IProducts } from "../interface/products";
 
-
-type Props = {}
-type FormValues={
-  title:string,
-  price:number,
-  description:string
-}
-const AuthForm = (props: Props) => {
-  const [product , setProduct] = useState<IProducts[]>([])
-  const nav = useNavigate(); 
+type Props = {
+  onData: (data: IProducts) => void;
+};
+const AuthForm = ({ onData }: Props) => {
+  const nav = useNavigate();
   const sChenma = z.object({
-    title : z.string().min(6),
-    price : z.number().min(6),
-    description : z.string()
+    title: z.string().min(6),
+    price: z.number(),
+    description: z.string(),
   });
   const {
-    register  ,
-    handleSubmit, 
-    
-    formState : {errors}
-  } = useForm<FormValues>()
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<IProducts>({
+    resolver: zodResolver(sChenma),
+  });
 
-  const onSubmit = async (data : FormValues) => {
-    try {
-      const res = await api.post("/products" , data);
-      setProduct([...product, res.data]);
-      alert("Them san pham thanh cong");
-      nav("/");
-    } catch (error) {
-      console.error("Erorr adding products" , error);
-      alert("Erorr adding products");
-    }
+  const { id } = useParams();
+  if (id) {
+    useEffect(() => {
+      (async () => {
+        try {
+          const res = await api.get(`/products/${id}`);
+          reset(res.data);
+        } catch (error) {
+          console.log(error);
+        }
+      })();
+    }, [id]);
   }
+  const onSubmit = (data: IProducts) => {
+    onData({ ...data, id });
+  };
+
   return (
-    <form  onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <h1>Them san pham </h1>
-  <div className="mb-3">
-    <label htmlFor="exampleInputEmail1" className="form-label">Title</label>
-    <input type="text" className="form-control"{...register("title" , {required : true,minLength:6})} />
-    {errors.title && <span className="text-danger">Tiêu đề phải có ít nhất 6 ký tự.</span>}
-  </div>
-  <div className="mb-3">
-    <label htmlFor="exampleInputPassword1" className="form-label">Price</label>
-    <input type="number" className="form-control" id="exampleInputPassword1" {...register("price",{required:true,min:0})  } />
-    
-  </div>
-  <div className="mb-3">
-    <label htmlFor="exampleInputPassword1" className="form-label">Description</label>
-    <input type="text" className="form-control" id="exampleInputPassword1" {...register("description")} />
-  </div>
-  <button type="submit" className="btn btn-primary w-100">Submit</button>
-</form>
-  )
-}
+      <div className="mb-3">
+        <label htmlFor="exampleInputEmail1" className="form-label">
+          Title
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          {...register("title", { required: true, minLength: 6 })}
+        />
+        {errors.title && (
+          <span className="text-danger">Tiêu đề phải có ít nhất 6 ký tự.</span>
+        )}
+      </div>
+      <div className="mb-3">
+        <label htmlFor="exampleInputPassword1" className="form-label">
+          Price
+        </label>
+        <input
+          type="number"
+          className="form-control"
+          id="exampleInputPassword1"
+          {...register("price", {
+            required: true,
+            min: 0,
+            valueAsNumber: true,
+          })}
+        />
+      </div>
+      <div className="mb-3">
+        <label htmlFor="exampleInputPassword1" className="form-label">
+          Description
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          id="exampleInputPassword1"
+          {...register("description")}
+        />
+      </div>
+      <button type="submit" className="btn btn-primary w-100">
+        Submit
+      </button>
+    </form>
+  );
+};
 
 export default AuthForm;

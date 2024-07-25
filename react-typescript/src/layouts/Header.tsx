@@ -3,6 +3,7 @@ import Slideshow from './SlideShow';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import img1 from "../images/Rectangle 133.jpg";
+import Footer from './Footer';
 
 
 type Props = {
@@ -146,7 +147,7 @@ const Header = (props: Props) => {
         </div>
       </div>
       </div  > 
-    
+    <Footer />
     </>
   )
 }
