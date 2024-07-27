@@ -44,7 +44,7 @@ const AuthForm = ({ onData }: Props) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h1>Them san pham </h1>
+      <h1>{id ? "Sua san pham " : "Them san pham"} </h1>
       <div className="mb-3">
         <label htmlFor="exampleInputEmail1" className="form-label">
           Title
@@ -72,6 +72,7 @@ const AuthForm = ({ onData }: Props) => {
             valueAsNumber: true,
           })}
         />
+        {errors.price?.message && ( <p className="text-danger">{errors.price?.message}</p>)}
       </div>
       <div className="mb-3">
         <label htmlFor="exampleInputPassword1" className="form-label">

@@ -11,7 +11,9 @@ const Home = ({products , onDelete} : Props) => {
 
   return (
     <> 
-      <h1>Danh sach san pham </h1>
+     <div className='h1-listproducts'>
+      <h1>Danh sách sản phẩm</h1>
+     </div>
      <Link to="/authform"> <button className='btn btn-success'>Add</button></Link>
       <table className='table table-striped table-bordered'>
         <thead>

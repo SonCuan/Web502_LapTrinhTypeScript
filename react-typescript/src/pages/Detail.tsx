@@ -22,19 +22,26 @@ const Detail = (props: Props) => {
 
   return (
     <>
-     <div className="container">
+      <div className="container mt-4">
       <div className="row">
         <div className="col-md-6">
-          <img src={products.thumbnail} alt={products.title} height={"300px"} width={"300px"} />
+          <img
+            src={products.thumbnail}
+            alt={products.title}
+            className="img-fluid"
+          />
         </div>
         <div className="col-md-6">
           <h1>{products.title}</h1>
-          <p>{products.description}</p>
-          <p>{products.price}</p>
-         <Link to={`/cardform/${products.id} `} > <button className='btn btn-success'>Them vao gio hang</button></Link>
+          <p className="text-muted">{products.description}</p>
+          <p><strong>Price:</strong> ${products.price}</p>
+          <p><strong>Category:</strong> {products.category}</p>
+          <Link to={`/cart/${products.id}`}>
+            <button className="btn btn-success">Thêm vào giỏ hàng </button>
+          </Link>
         </div>
       </div>
-     </div>
+    </div>
     </>
     
   )

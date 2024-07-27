@@ -7,3 +7,8 @@ export interface IProducts {
    thumbnail : string;
   
 }
+export interface AuthFormLogin {
+   user : string;
+   email : string;
+   password : string;
+}

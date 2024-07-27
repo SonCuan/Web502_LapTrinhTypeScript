@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+form { 
+    width: 600px ; 
+    margin: 100px auto ;
+    border-radius: 5px ; 
+    border: 1px solid #ccc ;
+    background: #ebe2e2;
+    padding : 30px ;
+    box-shadow: 0 0 12px 0 ;
+}
+.App-header {
+  background-color: #fce2e2; /* màu nền */
+  padding: 10px 0; /* padding trên và dưới */
+  text-align: center; /* căn giữa nội dung */
+  position: fixed; /* giữ header ở vị trí cố định */
+  width: 100%; /* chiều rộng 100% */
+  z-index: 1000; /* đảm bảo header hiển thị trên các phần nội dung khác */
+  top: 0; /* đặt header ở trên cùng của trang */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* đổ bóng để tạo độ nổi header */
+}
+
+ul {
+  list-style-type: none; /* loại bỏ dấu đầu dòng của danh sách */
+  padding: 0; /* loại bỏ padding mặc định của danh sách */
+}
+
+li {
+  display: inline; /* hiển thị các mục danh sách trên cùng một hàng */
+  margin-right: 20px; /* khoảng cách giữa các mục */
+}
+
+li:last-child {
+  margin-right: 0; /* loại bỏ margin của phần tử cuối cùng */
+}
+
+li a {
+  color: black; /* màu chữ cho các liên kết */
+  text-decoration: none; /* loại bỏ gạch chân của liên kết */
+  padding: 5px; /* padding bên trong của các liên kết */
+  transition: background-color 0.3s; /* hiệu ứng khi hover */
+}
+
+li a:hover {
+  background-color: #cf9494; /* màu nền khi hover */
+  border-radius: 5px; /* bo góc cho màu nền khi hover */
+}
+
+.h1-listproducts { 
+  padding: 60px 0 0 0;
+}
+
+ 

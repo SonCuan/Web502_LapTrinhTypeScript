@@ -2,10 +2,10 @@
   "products": [
     {
       "id": 1,
-      "title": "Essence Mascara Lash ",
+      "title": "Essence Mascara Lash  1 ",
       "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
       "category": "beauty",
-      "price": 913123,
+      "price": 12,
       "discountPercentage": 7.17,
       "rating": 4.94,
       "stock": 5,
@@ -1740,10 +1740,10 @@
     },
     {
       "id": 30,
-      "title": "Kiwi",
+      "title": "Kiwi thom ngon bo re ",
       "description": "Nutrient-rich kiwi, perfect for snacking or adding a tropical twist to your dishes.",
       "category": "groceries",
-      "price": 2.49,
+      "price": 249,
       "discountPercentage": 10.32,
       "rating": 4.37,
       "stock": 1,
@@ -1797,18 +1797,28 @@
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Kiwi/thumbnail.png"
     }
   ],
-  "user": [
+  "users": [
     {
-      "id": 1,
-      "username": "admin",
-      "password": "admin",
-      "role": "admin"
+      "email": "thg123@gmail.com",
+      "password": "$2a$10$8WROrIrB.ozcDdZMsKHF4.enZgcdR4z6K9If816mIN6Cpgm/IpCli",
+      "id": 1
     },
     {
-      "id": 2,
-      "username": "user",
-      "password": "user",
-      "role": "user"
+      "email": "zzzz123333311@gmail.com",
+      "password": "$2a$10$d7Q6EeAlkcrhC0TTfMK6I.0RZUU6m/VNsudlVSmUNek..Dkg/S1FG",
+      "id": 2
+    },
+    {
+      "email": "newuser123@gmail.com",
+      "password": "$2a$10$lCj7YiOgUKKr.ln/DjhwKe9A3CjN5hfpZ3NaUnrUbr/RFzXAP/kJm",
+      "user": "quan dz vcl",
+      "id": 3
+    },
+    {
+      "email": "newuser1233@gmail.com",
+      "password": "$2a$10$xjY.zTX05vMaJhme3lFojek2KOhCEXDkdB9yDVJdW955echs64ykC",
+      "user": "quanns",
+      "id": 4
     }
   ]
 }
