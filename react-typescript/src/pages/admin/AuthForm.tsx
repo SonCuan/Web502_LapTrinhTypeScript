@@ -3,18 +3,21 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { z } from "zod";
-import api from "../servis/axios";
-import { IProducts } from "../interface/products";
+import api from "../../servis/axios";
+import { IProducts } from "../../interface/products";
+import { ICategory } from "../../interface/category";
 
 type Props = {
   onData: (data: IProducts) => void;
+  category : ICategory[];
 };
-const AuthForm = ({ onData }: Props) => {
+const AuthForm = ({ category, onData }: Props) => {
   const nav = useNavigate();
   const sChenma = z.object({
     title: z.string().min(6),
     price: z.number(),
     description: z.string(),
+    category: z.string(),
   });
   const {
     register,
@@ -72,7 +75,9 @@ const AuthForm = ({ onData }: Props) => {
             valueAsNumber: true,
           })}
         />
-        {errors.price?.message && ( <p className="text-danger">{errors.price?.message}</p>)}
+        {errors.price?.message && (
+          <p className="text-danger">{errors.price?.message}</p>
+        )}
       </div>
       <div className="mb-3">
         <label htmlFor="exampleInputPassword1" className="form-label">
@@ -84,6 +89,14 @@ const AuthForm = ({ onData }: Props) => {
           id="exampleInputPassword1"
           {...register("description")}
         />
+      </div>
+      <div className="mb-3">
+        <select {...register("category")} className="form-select" name="category" id="">
+         <option value="">Chọn loại sản phẩm</option>
+          {category.map((item) => (
+            <option value={item.id} key={item.id}>{item.title}</option>
+          ))}
+        </select>
       </div>
       <button type="submit" className="btn btn-primary w-100">
         Submit

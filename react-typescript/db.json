@@ -5,7 +5,7 @@
       "title": "Essence Mascara Lash  1 ",
       "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
       "category": "beauty",
-      "price": 12,
+      "price": 143,
       "discountPercentage": 7.17,
       "rating": 4.94,
       "stock": 5,
@@ -1795,6 +1795,13 @@
         "https://cdn.dummyjson.com/products/images/groceries/Kiwi/1.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Kiwi/thumbnail.png"
+    },
+    {
+      "title": "new product",
+      "price": 123,
+      "description": "mota",
+      "category": "1",
+      "id": 31
     }
   ],
   "users": [
@@ -1818,6 +1825,32 @@
       "email": "newuser1233@gmail.com",
       "password": "$2a$10$xjY.zTX05vMaJhme3lFojek2KOhCEXDkdB9yDVJdW955echs64ykC",
       "user": "quanns",
+      "id": 4
+    }
+  ],
+  "categories": [
+    {
+      "title": "Ao thun nam 2024",
+      "description": "hang siet chat ",
+      "thumbnail": "https://picsum.photos/200",
+      "id": 1
+    },
+    {
+      "title": "Ao thun moi ",
+      "description": "mo ta ",
+      "thumbnail": "https://picsum.photos/200",
+      "id": 2
+    },
+    {
+      "title": "Ao thun moi ",
+      "description": "mo ta ",
+      "thumbnail": "https://picsum.photos/200",
+      "id": 3
+    },
+    {
+      "title": "Ao short gun 2025",
+      "description": "mo ta ",
+      "thumbnail": "https://picsum.photos/300",
       "id": 4
     }
   ]

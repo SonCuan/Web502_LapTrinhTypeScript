@@ -1,20 +1,22 @@
 import React from 'react'
-import { IProducts } from '../interface/products'
 import { Link } from 'react-router-dom';
+import { IProducts } from '../../interface/products';
+import { ICategory } from '../../interface/category';
 
-// type Props = {
-//   products : IProducts[];
-//   onDelete : (id: number) => void
-// }
+type Props = {
+  products : IProducts[];
+  onDelete : (id: number) => void
+  category : ICategory[];
+}
 
-const Home = ( ) => {
+const Product = ({category, products , onDelete} : Props) => {
 
   return (
     <> 
-     {/* <div className='h1-listproducts'>
+     <div className='h1-listproducts'>
       <h1>Danh sách sản phẩm</h1>
      </div>
-     <Link to="/authform"> <button className='btn btn-success'>Add</button></Link>
+     <Link to="/admin/authform"> <button className='btn btn-success'>Add</button></Link>
       <table className='table table-striped table-bordered'>
         <thead>
           <tr>
@@ -23,6 +25,7 @@ const Home = ( ) => {
             <th>Price</th>
             <th>Description</th>
             <th>Images</th>
+            <th>Categories</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -36,17 +39,18 @@ const Home = ( ) => {
               <td>
                <img src={item.thumbnail} alt={item.title} height={"100px"} width={"100px"} /> 
                   </td>
-              <td>
-                <Link to = {`/authform/${item.id}`}><button className='btn btn-warning w-100'>Edit</button></Link>
+                  <td>{category.find(category => category.id == item.category)?.title  }</td> 
+              <td>     
+                <Link to = {`/admin/authform/${item.id}`}><button className='btn btn-warning w-100'>Edit</button></Link>
                 <button className='btn btn-danger w-100' onClick={() => onDelete(Number(item.id))}>Delete</button>
               </td>
             </tr>
           ))}
         </tbody>
-      </table> */}
+      </table>
      
     </>
   )
 }
 
-export default Home;
+export default Product;
