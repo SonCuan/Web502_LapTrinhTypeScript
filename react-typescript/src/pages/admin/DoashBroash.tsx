@@ -13,7 +13,7 @@ const DoashBroash = (props: Props) => {
             <li><Link to ="/admin/product">Product</Link></li>
         </ul>
         <ul>
-            <li><Link to ="/admin/authCategory">Category</Link></li>
+            <li><Link to ="/admin/category">Category</Link></li>
         </ul>
         <ul>
             <li>Settings</li>

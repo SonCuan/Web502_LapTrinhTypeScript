@@ -46,7 +46,7 @@ const AuthForm = ({ category, onData }: Props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} >
       <h1>{id ? "Sua san pham " : "Them san pham"} </h1>
       <div className="mb-3">
         <label htmlFor="exampleInputEmail1" className="form-label">

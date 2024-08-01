@@ -14,6 +14,7 @@ import Product from "./pages/admin/Product";
 import AuthCategory from "./pages/admin/AuthCategory";
 import { ICategory } from "./interface/category";
 import Category from "./pages/admin/Category";
+import Shop from "./pages/Shop";
 
 function App() {
   const [products, setProducts] = useState<IProducts[]>([]);
@@ -100,14 +101,14 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Home  />}
+          element={<Home products={products} />}
         />
         {/* <Route path='/header' element = {<Header />} />
         <Route path='/footer ' element = {<Footer />} /> */}
         <Route path="/detail/:id" Component={Detail} />
         <Route path="/authlogin" element={<AuthLogin isRegister={false} />} />
         <Route path="/authregister" element={<AuthLogin isRegister={true} />} />
-
+        <Route path="/shop/:id" element={<Shop />} />
         {/* Admin  */}
         <Route path="/admin" element={<DoashBroash />} />
         <Route path="/admin/authform/:id" element={<AuthForm onData={onEdit} category={category}/>} />

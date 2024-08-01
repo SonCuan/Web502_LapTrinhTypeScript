@@ -1,52 +1,46 @@
-import React from 'react'
-import { IProducts } from '../interface/products'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { IProducts } from "../interface/products";
+import { Link } from "react-router-dom";
+import Product from "./admin/Product";
+import { ICategory } from "../interface/category";
+import Header from "../controllers/Header";
 
-// type Props = {
-//   products : IProducts[];
-//   onDelete : (id: number) => void
-// }
 
-const Home = ( ) => {
+type Props = {
+  products: IProducts[];
+  // onDelete : (id: number) => void
+  
+};
 
+const Home = ({ products,  }: Props) => {
   return (
-    <> 
-     {/* <div className='h1-listproducts'>
-      <h1>Danh sách sản phẩm</h1>
-     </div>
-     <Link to="/authform"> <button className='btn btn-success'>Add</button></Link>
-      <table className='table table-striped table-bordered'>
-        <thead>
-          <tr>
-            <th>STT</th>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Description</th>
-            <th>Images</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map (item  => (
-            <tr key={item.id }>
-              <td>{item.id}</td>
-              <td><Link to = {`/detail/${item.id}`}> {item.title}</Link></td>
-              <td>{item.price}</td>
-              <td>{item.description}</td>
-              <td>
-               <img src={item.thumbnail} alt={item.title} height={"100px"} width={"100px"} /> 
-                  </td>
-              <td>
-                <Link to = {`/authform/${item.id}`}><button className='btn btn-warning w-100'>Edit</button></Link>
-                <button className='btn btn-danger w-100' onClick={() => onDelete(Number(item.id))}>Delete</button>
-              </td>
-            </tr>
+    <>
+      {/* header */}
+      <Header />  
+      {/* End header */}
+
+      {/* main  */}
+      <div className="container mt-5">
+        <div className="row ">
+          {products.map((item) => (
+            <div className="col-3 mb-4" key={item.id}>
+              <div className="card" style={{ width: "18rem" }}>
+                <img src={item.thumbnail} className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h5 className="card-title">{item.title}</h5>
+                  <p className="card-text">{item.description}</p>
+                  <a href={`/detail/${item.id}`} className="btn btn-primary">
+                    Xem chi tiet{" "}
+                  </a>
+                </div>
+              </div>
+            </div>
           ))}
-        </tbody>
-      </table> */}
-     
+        </div>
+      </div>
+      {/* End main */}
     </>
-  )
-}
+  );
+};
 
 export default Home;
