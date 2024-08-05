@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import Detail from "./pages/Detail";
 import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import { IProducts } from "./interface/products";
@@ -14,7 +14,7 @@ import Product from "./pages/admin/Product";
 import AuthCategory from "./pages/admin/AuthCategory";
 import { ICategory } from "./interface/category";
 import Category from "./pages/admin/Category";
-import Shop from "./pages/Shop";
+import Shop from "./pages/ShopDanhMuc/Shop";
 
 function App() {
   const [products, setProducts] = useState<IProducts[]>([]);
@@ -28,7 +28,7 @@ function App() {
       setCategory(result.data);
     })();
   }, []);
-  
+
   //  Phan them san pham
   const handleDelete = (id: number) => {
     (async () => {
@@ -67,22 +67,22 @@ function App() {
   };
   const handleCategory = async (data: ICategory) => {
     try {
-      if(data.id) { 
-        const result = await api.patch(`/categories/${data.id}` , data) ; 
+      if (data.id) {
+        const result = await api.patch(`/categories/${data.id}`, data);
         const newCategory = await api.get("/categories");
         setCategory(newCategory.data);
         alert("Sua thanh cong");
         nav("/admin/category");
-      }else { 
-        const res = await api.post("/categories" , data) ;
-        setCategory([...category,res.data]);
+      } else {
+        const res = await api.post("/categories", data);
+        setCategory([...category, res.data]);
         alert("Them thanh cong");
         nav("/admin/category");
       }
     } catch (error) {
       console.log(error);
     }
-  }
+  };
   const handleDeleteCategory = (id: number) => {
     (async () => {
       try {
@@ -95,14 +95,11 @@ function App() {
         console.log(error);
       }
     })();
-  }
+  };
   return (
     <>
       <Routes>
-        <Route
-          path="/"
-          element={<Home products={products} />}
-        />
+        <Route path="/" element={<Home product={products} />} />
         {/* <Route path='/header' element = {<Header />} />
         <Route path='/footer ' element = {<Footer />} /> */}
         <Route path="/detail/:id" Component={Detail} />
@@ -111,14 +108,43 @@ function App() {
         <Route path="/shop/:id" element={<Shop />} />
         {/* Admin  */}
         <Route path="/admin" element={<DoashBroash />} />
-        <Route path="/admin/authform/:id" element={<AuthForm onData={onEdit} category={category}/>} />
-        <Route path="/admin/authform" element={<AuthForm onData={onAdd} category={category} />} />
-        <Route path="/admin/product" element ={<Product products={products} onDelete={handleDelete} category={category} />} />
-        <Route path ="/admin/category" element={<Category category={category}  onDeleteCategory={handleDeleteCategory}/>} />
-        <Route path="/admin/authCategory" element={<AuthCategory onDataCategory={handleCategory}   />} />
-        <Route path="/admin/authCategory/:id" element={<AuthCategory  onDataCategory={handleCategory} />} />
+        <Route
+          path="/admin/authform/:id"
+          element={<AuthForm onData={onEdit} category={category} />}
+        />
+        <Route
+          path="/admin/authform"
+          element={<AuthForm onData={onAdd} category={category} />}
+        />
+        <Route
+          path="/admin/product"
+          element={
+            <Product
+              products={products}
+              onDelete={handleDelete}
+              category={category}
+            />
+          }
+        />
+        <Route
+          path="/admin/category"
+          element={
+            <Category
+              category={category}
+              onDeleteCategory={handleDeleteCategory}
+            />
+          }
+        />
+        <Route
+          path="/admin/authCategory"
+          element={<AuthCategory onDataCategory={handleCategory} />}
+        />
+        <Route
+          path="/admin/authCategory/:id"
+          element={<AuthCategory onDataCategory={handleCategory} />}
+        />
       </Routes>
     </>
   );
-} 
+}
 export default App;

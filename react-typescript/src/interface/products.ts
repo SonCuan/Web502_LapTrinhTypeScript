@@ -5,6 +5,7 @@ export interface IProducts {
    description : string;
    category : string;
    thumbnail : string;
+   brand : string;
   
 }
 export interface AuthFormLogin {

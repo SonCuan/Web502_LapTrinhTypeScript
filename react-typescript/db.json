@@ -2,9 +2,9 @@
   "products": [
     {
       "id": 1,
-      "title": "Essence Mascara Lash  1 ",
+      "title": "Essence Mascara Lash  5",
       "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
-      "category": "2",
+      "category": "1",
       "price": 143,
       "discountPercentage": 7.17,
       "rating": 4.94,
@@ -1742,7 +1742,7 @@
       "id": 30,
       "title": "Kiwi thom ngon bo re ",
       "description": "Nutrient-rich kiwi, perfect for snacking or adding a tropical twist to your dishes.",
-      "category": "4",
+      "category": "7",
       "price": 249,
       "discountPercentage": 10.32,
       "rating": 4.37,
@@ -1795,13 +1795,6 @@
         "https://cdn.dummyjson.com/products/images/groceries/Kiwi/1.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Kiwi/thumbnail.png"
-    },
-    {
-      "title": "new product",
-      "price": 123,
-      "description": "mota",
-      "category": "1",
-      "id": 31
     }
   ],
   "users": [
@@ -1846,6 +1839,36 @@
       "description": "mo ta ",
       "thumbnail": "https://picsum.photos/300",
       "id": 4
+    },
+    {
+      "title": "Ao Adidas hang new ",
+      "description": "mota",
+      "thumbnail": "https://picsum.photos/200/300",
+      "id": 5
+    },
+    {
+      "title": "Ao Adidas 2 ",
+      "description": "mota",
+      "thumbnail": "https://picsum.photos/200",
+      "id": 6
+    },
+    {
+      "title": "Ao Adidas cho nu ",
+      "description": "mota",
+      "thumbnail": "https://picsum.photos/200",
+      "id": 7
+    },
+    {
+      "title": "Ao short nu ",
+      "description": "mota",
+      "thumbnail": "https://picsum.photos/200",
+      "id": 8
+    },
+    {
+      "title": "Ao cho nam ",
+      "description": "mota",
+      "thumbnail": "https://picsum.photos/100",
+      "id": 9
     }
   ]
 }

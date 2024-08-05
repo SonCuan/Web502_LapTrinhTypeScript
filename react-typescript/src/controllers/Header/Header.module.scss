@@ -1,0 +1,60 @@
+header { 
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(to left, #c7beb8 0%, #4e7c32 100%); ;
+}
+.wapper{
+    width: 1225px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.header-top{    
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #c7beb8 ;
+
+}
+.sreach {
+    width: 525px ;
+    height: 46px;
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    background: #fff;
+    overflow: hidden;
+    input{
+        margin-left: 10px;
+        width: 90%;
+        // height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+    }
+    
+}
+.header-bottom{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    ul{
+        width: 100%;
+        display:  flex;
+        justify-content: space-between;
+        gap: 10px;
+        li a{ 
+            color: #fff;
+        }
+    }
+   
+}
+.header-tr { 
+    ul{
+        display: flex; 
+        gap: 20px;
+    }
+    
+}
